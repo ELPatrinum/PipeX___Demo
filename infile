@@ -1,10 +1,10 @@
-total 1744
--rwxr-xr-x  1 muel-bak  candidate   50232 Dec 10 16:40 a.out
+total 1736
+-rwxr-xr-x  1 muel-bak  candidate   50232 Dec 10 16:44 a.out
 -rw-r--r--  1 muel-bak  candidate    2130 Dec 10 15:55 ft_split.c
--rw-r--r--  1 muel-bak  candidate     587 Dec 10 16:42 infile
--rw-r--r--  1 muel-bak  candidate    2118 Dec 10 15:32 mini_libft.c
+-rw-r--r--  1 muel-bak  candidate       0 Dec 10 16:45 infile
 -rw-r--r--  1 muel-bak  candidate       0 Dec 10 14:06 outfile
 -rw-r--r--  1 muel-bak  candidate    1651 Dec 10 16:40 pipex.c
 -rw-r--r--  1 muel-bak  candidate     298 Dec 10 15:57 pipex.h
--rw-r--r--  1 muel-bak  candidate  815972 Dec 10 16:40 pipex.h.gch
+-rw-r--r--  1 muel-bak  candidate  815972 Dec 10 16:44 pipex.h.gch
+-rw-r--r--  1 muel-bak  candidate    2118 Dec 10 15:32 tools.c
 -rw-r--r--  1 muel-bak  candidate       0 Dec  9 12:30 utils.c
