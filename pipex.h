@@ -7,9 +7,4 @@
 # include <string.h>
 # include <stdio.h>
 
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*to_space(char *line);
-size_t	ft_strlen(const char *str);
-char	**ft_split(char const *s, char c);
-
 #endif
