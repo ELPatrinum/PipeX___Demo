@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:48:35 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/11 18:25:57 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/11 18:27:26 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	valid_cmd(char *av)
 	}
 	else
 		return (0);
+	
 }
 
 void	first_cmd(char **av, char **env, int *pipid)
