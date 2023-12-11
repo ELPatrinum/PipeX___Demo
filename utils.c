@@ -6,39 +6,41 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:39:46 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/11 17:28:33 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:17:04 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char *ft_error(char *av, char *av2)
+char	*ft_error(char *av, char *av2)
 {
-    char *res;
-    int j = 0;
-	int g = 0;
-    int i = 0;
-	int y = 0;
-	
-    while (av[j] != '\0' && av[j] != ' ')
-        j++;
-	while (av2[g] != '\0' && av2[g] != ' ')
-		g++;
-    res = (char *)malloc(j + g + 3);
-    if (res == NULL)
-		return(perror("malloc"), NULL);
-    while (av[i] != '\0' && av[i] != ' ')
+	char	*res;
+	t_list	ints;
+
+	ints.j = 0;
+	ints.g = 0;
+	ints.i = 0;
+	ints.y = 0;
+	while (av[ints.j] != '\0' && av[ints.j] != ' ')
+		ints.j++;
+	while (av2[ints.g] != '\0' && av2[ints.g] != ' ')
+		ints.g++;
+	res = (char *)malloc(ints.j + ints.g + 3);
+	if (res == NULL)
+		return (perror("malloc"), NULL);
+	while (av[ints.i] != '\0' && av[ints.i] != ' ')
 	{
-        res[i] = av[i];
-		i++;
+		res[ints.i] = av[ints.i];
+		ints.i++;
 	}
-	res[i++] = ':';
-	res[i++] = ' ';
-	while (av2[y] != '\0' && av2[y] != ' ')
-		res[i++] = av2[y++];
-    res[i] = '\0';
-    return res;
+	res[ints.i++] = ':';
+	res[ints.i++] = ' ';
+	while (av2[ints.y] != '\0' && av2[ints.y] != ' ')
+		res[ints.i++] = av2[ints.y++];
+	res[ints.i] = '\0';
+	return (res);
 }
+
 size_t	ft_strlen(const char *str)
 {
 	int	i;
@@ -50,6 +52,7 @@ size_t	ft_strlen(const char *str)
 	}
 	return (i);
 }
+
 char	*join_it(char *str1, char *str2, char *joined)
 {
 	int	i;
@@ -94,24 +97,28 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	else
 		return (join_it(str1, str2, joined));
 }
-char *to_space(char *line)
+
+char	*to_space(char *line)
 {
-    char *res;
-    int j = 0;
-    int i = 0;
-    while (line[j] != '\0' && line[j] != ' ')
-        j++;
-    res = (char *)malloc(j + 1);
-    if (res == NULL)
+	char	*res;
+	int		j;
+	int		i;
+
+	j = 0;
+	i = 0;
+	while (line[j] != '\0' && line[j] != ' ')
+		j++;
+	res = (char *)malloc(j + 1);
+	if (res == NULL)
 	{
-        perror("malloc");
-        exit(1);
-    }
-    while (line[i] != '\0' && line[i] != ' ')
+		perror("malloc");
+		exit(1);
+	}
+	while (line[i] != '\0' && line[i] != ' ')
 	{
-        res[i] = line[i];
-        i++;
-    }
-    res[i] = '\0';
-    return res;
+		res[i] = line[i];
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
 }
