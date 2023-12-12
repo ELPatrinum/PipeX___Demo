@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:33:29 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/12 12:59:30 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/12 13:08:21 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ void	sec_cmd(char **av, char **env, int *pipid, int fd)
 	}
 }
 
-int spaces(char *str)
+int	spaces(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i] != '\0' && str[i] == ' ')
+	while (str[i] != '\0' && str[i] == ' ')
 		i++;
 	return (i);
 }
 
-void ft_puterror(char *str)
+void	ft_puterror(char *str)
 {
-	if(*str)
+	if (*str)
 	{
 		write(2, str, 1);
 		ft_puterror(str + 1);
