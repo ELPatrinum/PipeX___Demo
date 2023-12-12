@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:39:46 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/11 19:17:04 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:52:59 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_error(char *av, char *av2)
 	return (res);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
