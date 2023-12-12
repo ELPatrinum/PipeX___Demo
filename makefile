@@ -6,7 +6,7 @@
 #    By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 11:48:44 by muel-bak          #+#    #+#              #
-#    Updated: 2023/12/12 12:09:02 by muel-bak         ###   ########.fr        #
+#    Updated: 2023/12/12 15:13:32 by muel-bak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_FILES = pipex.c utils.c more_utils.c
+SRC_FILES = pipex.c utils.c utils1.c
 
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
