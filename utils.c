@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:39:46 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/12 15:16:55 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/13 21:01:25 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_error(char *av, char *av2)
 		ints.g++;
 	res = (char *)malloc(ints.j + ints.g + 3);
 	if (res == NULL)
-		return (perror("malloc"), NULL);
+		return (NULL);
 	while (av[ints.i] != '\0' && av[ints.i] != ' ')
 	{
 		res[ints.i] = av[ints.i];
@@ -110,10 +110,7 @@ char	*to_space(char *line)
 		j++;
 	res = (char *)malloc(j + 1);
 	if (res == NULL)
-	{
-		perror("malloc");
 		exit(1);
-	}
 	while (line[i] != '\0' && line[i] != ' ')
 	{
 		res[i] = line[i];

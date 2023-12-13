@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   z_pipex_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:59:49 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/12 17:39:45 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/13 18:14:12 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef Z_PIPEX_BONUS_H
+# define Z_PIPEX_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -42,5 +42,6 @@ int		spaces(char *str);
 int		ft_strlen(const char *str);
 void	empty_or_space_error(char **av, char **env, int args);
 int		pipex(char **av, char **env, int args);
+int		ft_strncmp(const char *str1, const char *str2, size_t n);
 
 #endif

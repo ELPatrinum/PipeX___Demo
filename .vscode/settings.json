@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"types.h": "c"
+		"types.h": "c",
+		"z_heredoc.C": "cpp",
+		"z_z_heredoc.C": "cpp",
+		"z_pipex_bonus.h": "c"
 	}
 }

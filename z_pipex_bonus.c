@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   z_pipex_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:48:35 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/12 17:39:22 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/13 21:03:19 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
-
-int	valid_cmd(char *av)
-{
-	if ((access(ft_strjoin("/usr/bin/", to_space(av)), X_OK) == 0)
-		|| (access(ft_strjoin("/bin/", to_space(av)), X_OK) == 0)
-		|| (access(ft_strjoin("/sbin/", to_space(av)), X_OK) == 0)
-		|| (access(ft_strjoin("/usr/sbin/", to_space(av)), X_OK) == 0))
-	{
-		return (1);
-	}
-	else
-		return (0);
-}
+#include "z_pipex_bonus.h"
 
 void	empty_or_space_error(char **av, char **env, int args)
 {
@@ -49,6 +36,7 @@ void	empty_or_space_error(char **av, char **env, int args)
 	else
 		pipex(av, env, args);
 }
+
 void	mid_cmd_run(char **av, char **env, int *pipid, int arg)
 {
 	dup2(pipid[1], STDOUT_FILENO);
@@ -58,7 +46,7 @@ void	mid_cmd_run(char **av, char **env, int *pipid, int arg)
 	{
 		write(2, "-", 1);
 		execve("/bin/sh", (char *[]){"sh", "-c", av[arg], NULL}, env);
-			exit(2);
+		exit(2);
 	}
 	else
 	{
@@ -66,7 +54,8 @@ void	mid_cmd_run(char **av, char **env, int *pipid, int arg)
 			exit (1);
 	}
 }
-void mid_cmd(char **av, char **env, int args)
+
+void	mid_cmd(char **av, char **env, int args)
 {
 	int		arg;
 	pid_t	pid1;
@@ -126,9 +115,21 @@ int	pipex(char **av, char **env, int args)
 
 int	main(int ac, char **av, char **env)
 {
-	int args;
+	int	args;
 
+	(void)env;
 	args = ac - 2;
-	empty_or_space_error(av, env, args);
+	if (ac >= 5)
+	{
+		if (ft_strncmp("here_doc", av[1], ft_strlen(av[1])) == 0)
+		{
+		}
+		else
+			empty_or_space_error(av, env, args);
+	}
+	else
+		return (write(2, "-sh: : not enough arguments\n", 45), 0);
 }
-//./pipex file1 cmd1 cmd2 cmd3 ... cmdn file2
+//pipex here_doc LIMITER cmd cmd1 file
+//Should behave like:
+//cmd << LIMITER | cmd1 >> file

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   z_utils_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:39:46 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/12 15:16:55 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/13 20:59:32 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "z_pipex_bonus.h"
 
 char	*ft_error(char *av, char *av2)
 {
@@ -27,7 +27,7 @@ char	*ft_error(char *av, char *av2)
 		ints.g++;
 	res = (char *)malloc(ints.j + ints.g + 3);
 	if (res == NULL)
-		return (perror("malloc"), NULL);
+		return (NULL);
 	while (av[ints.i] != '\0' && av[ints.i] != ' ')
 	{
 		res[ints.i] = av[ints.i];
