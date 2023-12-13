@@ -1,18 +1,1 @@
-total 224
--rw-r--r--  1 muel-bak  candidate      8 Dec 10 17:37 infile
--rw-r--r--@ 1 muel-bak  candidate   1561 Dec 13 18:18 makefile
--rw-r--r--@ 1 muel-bak  candidate      0 Dec 13 21:16 outfile
--rwxr-xr-x  1 muel-bak  candidate  50512 Dec 13 21:14 pipex
--rw-r--r--@ 1 muel-bak  candidate   2387 Dec 13 21:07 pipex.c
--rw-r--r--  1 muel-bak  candidate   1494 Dec 12 12:52 pipex.h
--rw-r--r--  1 muel-bak  candidate   2868 Dec 13 21:14 pipex.o
--rw-r--r--  1 muel-bak  candidate      6 Dec 13 19:59 test
--rw-r--r--  1 muel-bak  candidate   2549 Dec 13 21:01 utils.c
--rw-r--r--  1 muel-bak  candidate   2460 Dec 13 21:14 utils.o
--rw-r--r--  1 muel-bak  candidate   2436 Dec 13 20:22 utils1.c
--rw-r--r--  1 muel-bak  candidate   3260 Dec 13 21:14 utils1.o
--rw-r--r--@ 1 muel-bak  candidate   3054 Dec 13 21:03 z_pipex_bonus.c
--rw-r--r--  1 muel-bak  candidate   1785 Dec 13 18:14 z_pipex_bonus.h
--rw-r--r--@ 1 muel-bak  candidate   2905 Dec 13 20:42 z_utils1_bonus.c
--rw-r--r--  1 muel-bak  candidate   2583 Dec 13 20:59 z_utils_bonus.c
--rw-r--r--@ 1 muel-bak  candidate   1699 Dec 13 20:42 z_z_heredo.c
+       3

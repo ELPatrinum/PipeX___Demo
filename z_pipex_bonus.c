@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 14:48:35 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/13 21:03:19 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/14 00:02:16 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,21 +115,23 @@ int	pipex(char **av, char **env, int args)
 
 int	main(int ac, char **av, char **env)
 {
-	int	args;
+	int		args;
+	t_ptr	ptr;
 
 	(void)env;
+	ptr.buff = malloc(1);
+	if (!ptr.buff)
+		return (-1);
+	ptr.buff[0] = '\0';
+	ptr.limiter = NULL;
 	args = ac - 2;
 	if (ac >= 5)
 	{
 		if (ft_strncmp("here_doc", av[1], ft_strlen(av[1])) == 0)
-		{
-		}
+			run_here_doc(ac, av, env, ptr);
 		else
 			empty_or_space_error(av, env, args);
 	}
 	else
 		return (write(2, "-sh: : not enough arguments\n", 45), 0);
 }
-//pipex here_doc LIMITER cmd cmd1 file
-//Should behave like:
-//cmd << LIMITER | cmd1 >> file

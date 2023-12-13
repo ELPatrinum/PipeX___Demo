@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:33:29 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/13 20:42:17 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/13 23:35:47 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	first_cmd(char **av, char **env, int *pipid, int fd)
 
 void	sec_cmd(char **av, char **env, int fd, int last)
 {
-	fd = open(av[last + 1], O_RDWR, 0777);
+	fd = open(av[last + 1], O_CREAT | O_RDWR | O_TRUNC, 0777);
 	if (fd >= 0)
 	{
 		dup2(fd, STDOUT_FILENO);
