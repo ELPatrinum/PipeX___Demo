@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:59:49 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/14 00:11:06 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/14 08:35:55 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int		pipex(char **av, char **env, int args);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 
 void	here_first_cmd(char **av, char **env, int *pipid);
-void	here_sec_cmd(char **av, char **env, int *pipid, int fd);
-int		here_doc_pipex(char **av, char **env);
+void	here_sec_cmd(char **av, char **env, int fd, int last);
+int		here_doc_pipex(char **av, char **env, int args);
 int		ft_here_doc(int ac, char **av, char **env);
 void	run_here_doc(int ac, char **av, char **env, t_ptr ptr);
 

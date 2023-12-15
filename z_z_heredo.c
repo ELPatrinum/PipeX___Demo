@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:04:18 by muel-bak          #+#    #+#             */
-/*   Updated: 2023/12/14 00:12:45 by muel-bak         ###   ########.fr       */
+/*   Updated: 2023/12/14 10:26:07 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,36 @@ void	here_first_cmd(char **av, char **env, int *pipid)
 	}
 }
 
-void	here_sec_cmd(char **av, char **env, int *pipid, int fd)
+void	here_sec_cmd(char **av, char **env, int fd, int last)
 {
-	fd = open(av[5], O_RDWR | O_APPEND, 0777);
+	fd = open(av[last + 1], O_CREAT | O_RDWR | O_APPEND, 0777);
 	if (fd >= 0)
 	{
-		dup2(pipid[0], STDIN_FILENO);
 		dup2(fd, STDOUT_FILENO);
-		close(pipid[0]);
+		close(fd);
 	}
-	if (fd >= 0 && !valid_cmd(av[5]))
+	if (fd >= 0 && !valid_cmd(av[last]))
 	{
-		write(2, "-", 1);
-		if (execve("/bin/sh", (char *[]){"sh", "-c", av[4], NULL}, env) == -1)
+		if (execve("/bin/sh", (char *[]){"sh", "-c", av[last], NULL}, env) > 0)
 			exit(2);
 	}
-	else if (fd < 0 && valid_cmd(av[4]))
-		perror(ft_error(av[5], av[4]));
-	else if (fd < 0 && !valid_cmd(av[4]) && write(2, "-", 1))
+	else if (fd < 0 && valid_cmd(av[last]))
 	{
-		if (execve("/bin/sh", (char *[]){"sh", "-c", av[5], NULL}, env) == -1)
+		perror(ft_error(av[last], av[last + 1]));
+	}
+	else if (fd < 0 && !valid_cmd(av[last]) && write(2, "-", 1))
+	{
+		if (execve("/bin/sh", (char *[]){"sh", "-c", av[last], NULL}, env) > 0)
 			exit(2);
 	}
-	else if (fd >= 0 && valid_cmd(av[4]))
+	else if (fd >= 0 && valid_cmd(av[last]))
 	{
-		if (execve("/bin/sh", (char *[]){"sh", "-c", av[4], NULL}, env) == -1)
+		if (execve("/bin/sh", (char *[]){"sh", "-c", av[last], NULL}, env) > 0)
 			exit(2);
 	}
 }
 
-int	here_doc_pipex(char **av, char **env)
+int	here_doc_pipex(char **av, char **env, int args)
 {
 	pid_t	pid1;
 	pid_t	pid2;
@@ -87,12 +87,14 @@ int	here_doc_pipex(char **av, char **env)
 	if (pid1 == 0)
 		here_first_cmd(av, env, pipid);
 	close(pipid[1]);
+	dup2(pipid[0], STDIN_FILENO);
+	close(pipid[0]);
+	mid_cmd(av, env, args);
 	pid2 = fork();
 	if (pid2 == -1)
 		return (3);
 	if (pid2 == 0)
-		here_sec_cmd(av, env, pipid, fd);
-	close(pipid[0]);
+		here_sec_cmd(av, env, fd, args);
 	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
 	return (0);
@@ -118,5 +120,5 @@ int	ft_here_doc(int ac, char **av, char **env)
 		return (0);
 	}
 	else
-		return (here_doc_pipex(av, env));
+		return (here_doc_pipex(av, env, ac - 2));
 }

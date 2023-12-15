@@ -6,7 +6,7 @@
 #    By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 11:48:44 by muel-bak          #+#    #+#              #
-#    Updated: 2023/12/13 23:51:56 by muel-bak         ###   ########.fr        #
+#    Updated: 2023/12/15 10:58:45 by muel-bak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,10 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES) $(HEADER_FILE)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ_FILES)
 
-bonus: $(OBJ_BONUS) $(BONUS_HEADER_FILE)
+$(NAME_BONUS) : $(OBJ_BONUS) $(BONUS_HEADER_FILE)
 	$(CC) $(CFLAGS) -o $(NAME_BONUS) $(OBJ_BONUS)
+
+bonus: $(NAME_BONUS)
 
 %.o: %.c $(HEADER_FILE)
 	$(CC) $(CFLAGS) -c $< -o $@
